@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery 圆形进度条(jquery是用canvas实现的)</title>
+    <script src="./jquery-1.11.1.min.js"></script>
+    <script src="./circle-progress.js"></script>
+</head>
+<body>
+    <div id="circle"></div>
+    <script>
+      $('#circle').circleProgress({
+        value: 0.75,
+        size: 80,
+        fill: {
+          gradient: ["red", "orange"]
+        }
+      });
+    </script>
+</body>
+</html>

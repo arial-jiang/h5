@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta name="layout" content="main">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>网页内容截屏成图片</title>
+    <script type="text/javascript" src="./jquery.min.js"></script>
+    <script type="text/javascript" src="./html2canvas.js"></script>
+
+    <script  type="text/javascript" >
+      $(document).ready( function(){
+        $(".example1").on("click", function(event) {
+          event.preventDefault();
+//          document.getElementById 输出的div 或 其它容器，这里是textArea
+          html2canvas(document.getElementById("textArea"), {
+            allowTaint: true,
+            taintTest: false,
+            onrendered: function(canvas) {
+              canvas.id = "mycanvas";
+              //document.body.appendChild(canvas);
+              //生成base64图片数据
+              var dataUrl = canvas.toDataURL();
+              var newImg = document.createElement("img");
+              newImg.src =  dataUrl;
+//              下面是截图输出到哪个容器
+              document.body.appendChild(newImg);
+            }
+          });
+        });
+
+      });
+
+    </script>
+</head>
+<body>
+
+Hello!
+<div class="" style="background-color: #abc;">
+    计算机天堂测试html5页面截图
+    <br>jsjtt.com
+</div>
+
+<textArea id="textArea" col="20" rows="10" ></textArea>
+<input class="example1" type="button" value="button">
+生成界面如下：
+</body>
+</html>
